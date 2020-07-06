@@ -1,0 +1,77 @@
+Task: 2, Test Name: Product grid should display two items, DOM Id: #product_grid .grid_item, Browser: chrome, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 2, Test Name: Product grid should display two items, DOM Id: #product_grid .grid_item, Browser: firefox, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 2, Test Name: Product grid should display two items, DOM Id: #product_grid .grid_item, Browser: edge, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 2, Test Name: Product grid should display two items, DOM Id: #product_grid .grid_item, Browser: chrome, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 2, Test Name: Product grid should display two items, DOM Id: #product_grid .grid_item, Browser: firefox, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 2, Test Name: Product grid should display two items, DOM Id: #product_grid .grid_item, Browser: edge, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 2, Test Name: Product grid should display two items, DOM Id: #product_grid .grid_item, Browser: chrome, Viewport: 500 x 700, Device: Mobile, Status: Pass
+Task: 3, Test Name: Item model description text is displayed, DOM Id: SMALL____84, Browser: chrome, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 3, Test Name: Item size value is selected as Small (S), DOM Id: //div[@class='nice-select wide']//span, Browser: chrome, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 3, Test Name: Item price value should be $33.00, DOM Id: new_price, Browser: chrome, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 3, Test Name: Item model description text is displayed, DOM Id: SMALL____84, Browser: firefox, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 3, Test Name: Item size value is selected as Small (S), DOM Id: //div[@class='nice-select wide']//span, Browser: firefox, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 3, Test Name: Item price value should be $33.00, DOM Id: new_price, Browser: firefox, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 3, Test Name: Item model description text is displayed, DOM Id: SMALL____84, Browser: edge, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 3, Test Name: Item size value is selected as Small (S), DOM Id: //div[@class='nice-select wide']//span, Browser: edge, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 3, Test Name: Item price value should be $33.00, DOM Id: new_price, Browser: edge, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 3, Test Name: Item model description text is displayed, DOM Id: SMALL____84, Browser: chrome, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 3, Test Name: Item size value is selected as Small (S), DOM Id: //div[@class='nice-select wide']//span, Browser: chrome, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 3, Test Name: Item price value should be $33.00, DOM Id: new_price, Browser: chrome, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 3, Test Name: Item model description text is displayed, DOM Id: SMALL____84, Browser: firefox, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 3, Test Name: Item size value is selected as Small (S), DOM Id: //div[@class='nice-select wide']//span, Browser: firefox, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 3, Test Name: Item price value should be $33.00, DOM Id: new_price, Browser: firefox, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 3, Test Name: Item model description text is displayed, DOM Id: SMALL____84, Browser: edge, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 3, Test Name: Item size value is selected as Small (S), DOM Id: //div[@class='nice-select wide']//span, Browser: edge, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 3, Test Name: Item price value should be $33.00, DOM Id: new_price, Browser: edge, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 3, Test Name: Item model description text is displayed, DOM Id: SMALL____84, Browser: chrome, Viewport: 500 x 700, Device: Mobile, Status: Pass
+Task: 3, Test Name: Item size value is selected as Small (S), DOM Id: //div[@class='nice-select wide']//span, Browser: chrome, Viewport: 500 x 700, Device: Mobile, Status: Pass
+Task: 3, Test Name: Item price value should be $33.00, DOM Id: new_price, Browser: chrome, Viewport: 500 x 700, Device: Mobile, Status: Pass
+Task: 1, Test Name: Search field is displayed, DOM Id: DIV__customsear__41, Browser: chrome, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Menu is displayed, DOM Id: DIV__mainmenu__15, Browser: chrome, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: search icon is not displayed, DOM Id: A__btnsearchm__59, Browser: chrome, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: wish list icon is displayed, DOM Id: A__wishlist__52, Browser: chrome, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Grid icon is displayed, DOM Id: I__tiviewgrid__202, Browser: chrome, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: View list icon is displayed, DOM Id: I__tiviewlist__204, Browser: chrome, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Filter column is displayed, DOM Id: filter_col, Browser: chrome, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Search field is displayed, DOM Id: DIV__customsear__41, Browser: firefox, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Menu is displayed, DOM Id: DIV__mainmenu__15, Browser: firefox, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: search icon is not displayed, DOM Id: A__btnsearchm__59, Browser: firefox, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: wish list icon is displayed, DOM Id: A__wishlist__52, Browser: firefox, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Grid icon is displayed, DOM Id: I__tiviewgrid__202, Browser: firefox, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: View list icon is displayed, DOM Id: I__tiviewlist__204, Browser: firefox, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Filter column is displayed, DOM Id: filter_col, Browser: firefox, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Search field is displayed, DOM Id: DIV__customsear__41, Browser: edge, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Menu is displayed, DOM Id: DIV__mainmenu__15, Browser: edge, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: search icon is not displayed, DOM Id: A__btnsearchm__59, Browser: edge, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: wish list icon is displayed, DOM Id: A__wishlist__52, Browser: edge, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Grid icon is displayed, DOM Id: I__tiviewgrid__202, Browser: edge, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: View list icon is displayed, DOM Id: I__tiviewlist__204, Browser: edge, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Filter column is displayed, DOM Id: filter_col, Browser: edge, Viewport: 1200 x 700, Device: Laptop, Status: Pass
+Task: 1, Test Name: Search field is not displayed, DOM Id: DIV__customsear__41, Browser: chrome, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Menu is not displayed, DOM Id: DIV__mainmenu__15, Browser: chrome, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: search icon is displayed, DOM Id: A__btnsearchm__59, Browser: chrome, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Wish list icon is not displayed, DOM Id: A__wishlist__52, Browser: chrome, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Grid icon is not displayed, DOM Id: I__tiviewgrid__202, Browser: chrome, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: View list icon is not displayed, DOM Id: I__tiviewlist__204, Browser: chrome, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Filter column is not displayed, DOM Id: filter_col, Browser: chrome, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Search field is not displayed, DOM Id: DIV__customsear__41, Browser: firefox, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Menu is not displayed, DOM Id: DIV__mainmenu__15, Browser: firefox, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: search icon is displayed, DOM Id: A__btnsearchm__59, Browser: firefox, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Wish list icon is not displayed, DOM Id: A__wishlist__52, Browser: firefox, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Grid icon is not displayed, DOM Id: I__tiviewgrid__202, Browser: firefox, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: View list icon is not displayed, DOM Id: I__tiviewlist__204, Browser: firefox, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Filter column is not displayed, DOM Id: filter_col, Browser: firefox, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Search field is not displayed, DOM Id: DIV__customsear__41, Browser: edge, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Menu is not displayed, DOM Id: DIV__mainmenu__15, Browser: edge, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: search icon is displayed, DOM Id: A__btnsearchm__59, Browser: edge, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Wish list icon is not displayed, DOM Id: A__wishlist__52, Browser: edge, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Grid icon is not displayed, DOM Id: I__tiviewgrid__202, Browser: edge, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: View list icon is not displayed, DOM Id: I__tiviewlist__204, Browser: edge, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Filter column is not displayed, DOM Id: filter_col, Browser: edge, Viewport: 768 x 700, Device: Tablet, Status: Pass
+Task: 1, Test Name: Search field is not displayed, DOM Id: DIV__customsear__41, Browser: chrome, Viewport: 500 x 700, Device: Mobile, Status: Pass
+Task: 1, Test Name: Menu is not displayed, DOM Id: DIV__mainmenu__15, Browser: chrome, Viewport: 500 x 700, Device: Mobile, Status: Pass
+Task: 1, Test Name: search icon is displayed, DOM Id: A__btnsearchm__59, Browser: chrome, Viewport: 500 x 700, Device: Mobile, Status: Pass
+Task: 1, Test Name: Wish list icon is not displayed, DOM Id: A__wishlist__52, Browser: chrome, Viewport: 500 x 700, Device: Mobile, Status: Pass
+Task: 1, Test Name: Grid icon is not displayed, DOM Id: I__tiviewgrid__202, Browser: chrome, Viewport: 500 x 700, Device: Mobile, Status: Pass
+Task: 1, Test Name: View list icon is not displayed, DOM Id: I__tiviewlist__204, Browser: chrome, Viewport: 500 x 700, Device: Mobile, Status: Pass
+Task: 1, Test Name: Filter column is not displayed, DOM Id: filter_col, Browser: chrome, Viewport: 500 x 700, Device: Mobile, Status: Pass
