@@ -1,5 +1,10 @@
 package com.chrystian.pages;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+
 public class HomePage extends PageObject {
 
     @FindBy(id = "DIV__customsear__41")
@@ -20,7 +25,6 @@ public class HomePage extends PageObject {
     @FindBy(id = "I__tiviewlist__204")
     private WebElement viewListIcon;
 
-
     @FindBy(id = "I__tiviewlist__205")
     private WebElement viewListIcon2;
 
@@ -39,14 +43,59 @@ public class HomePage extends PageObject {
     @FindBy(css = "#product_grid .grid_item")
     private WebElement productGrid;
 
-    @FindBy(id = "A____217")
-    private WebElement blackShoesItem;
-
-    @FindBy(id = "product_1")
-    private WebElement blackShoesItem2;
+    @FindBy(id = "IMG__imgfluid__215")
+    private WebElement firstBlackShoesItem;
 
     public HomePage(WebDriver driver) {
         super(driver);
     }
 
+    public WebElement getSearchField() {
+        return waiter.until(ExpectedConditions.visibilityOf(searchField));
+    }
+
+    public WebElement getSearchIcon() {
+        return waiter.until(ExpectedConditions.visibilityOf(searchIcon));
+    }
+
+    public WebElement getWishListIcon() {
+        return waiter.until(ExpectedConditions.visibilityOf(wishListIcon));
+    }
+
+    public WebElement getGridIcon() {
+        return waiter.until(ExpectedConditions.visibilityOf(gridIcon));
+    }
+
+    public WebElement getViewListIcon() {
+        return waiter.until(ExpectedConditions.visibilityOf(viewListIcon));
+    }
+
+    public WebElement getFilterColumn() {
+        return waiter.until(ExpectedConditions.visibilityOf(filterColumn));
+    }
+
+    public WebElement getMainMenuButton() {
+        return waiter.until(ExpectedConditions.visibilityOf(mainMenuButton));
+    }
+
+    public WebElement getBlackColorOption() {
+        return waiter.until(ExpectedConditions.visibilityOf(blackColorOption));
+    }
+
+    public WebElement getFilterButton() {
+        return waiter.until(ExpectedConditions.elementToBeClickable(filterButton));
+    }
+
+    public WebElement getProductGrid() {
+        return waiter.until(ExpectedConditions.visibilityOf(productGrid));
+    }
+
+    public WebElement getFirstBlackShoesItem() {
+        return waiter.until(ExpectedConditions.elementToBeClickable(firstBlackShoesItem));
+    }
+
+    public boolean checkElementsVisibility() {
+
+        return false;
+    }
 }

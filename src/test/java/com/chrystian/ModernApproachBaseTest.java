@@ -1,53 +1,52 @@
-package ModernTestsV1;
+package com.chrystian;
 
 import com.applitools.eyes.*;
-import com.applitools.eyes.selenium.BrowserType;
 import com.applitools.eyes.selenium.Configuration;
 import com.applitools.eyes.selenium.Eyes;
-import com.applitools.eyes.visualgrid.model.DeviceName;
-import com.applitools.eyes.visualgrid.model.ScreenOrientation;
 import com.applitools.eyes.visualgrid.services.VisualGridRunner;
+import com.chrystian.pages.HomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeSuite;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
+import static com.applitools.eyes.selenium.BrowserType.*;
+import static com.applitools.eyes.visualgrid.model.DeviceName.iPhone_X;
+import static com.applitools.eyes.visualgrid.model.ScreenOrientation.PORTRAIT;
+
+public class ModernApproachBaseTest {
     private static final int VIEWPORTWIDTH = 800;
     private static final int VIEWPORTHEIGHT = 600;
     private final String applitoolsEyesServer = "https://eyes.applitools.com/";
-    String appName = "AppliFashion";
+    private String appName = "AppliFashion";
     public String appURLV1 = "https://demo.applitools.com/gridHackathonV1.html";
     public String appURLV2 = "https://demo.applitools.com/gridHackathonV2.html";
     private final String batchName = "ApplitoolsCrossBrowserTestingHackathon";
     private final String apiKey = System.getenv("APPLITOOLS_API_KEY");
-    private EyesRunner runner = null;
+    private EyesRunner runner;
     private Configuration suiteConfig;
     protected Eyes eyes;
     protected WebDriver driver;
+    protected HomePage homePage;
 
-    @BeforeSuite
+    @BeforeClass
     public void setUp() {
         runner = new VisualGridRunner(10);
         suiteConfig = (Configuration) new Configuration()
-                .addBrowser(1200, 700, BrowserType.CHROME)
-                .addBrowser(1200, 700, BrowserType.FIREFOX)
-                .addBrowser(1200, 700, BrowserType.EDGE_CHROMIUM)
-                .addBrowser(768, 700, BrowserType.CHROME)
-                .addBrowser(768, 700, BrowserType.FIREFOX)
-                .addBrowser(768, 700, BrowserType.EDGE_CHROMIUM)
-                .addDeviceEmulation(DeviceName.iPhone_X, ScreenOrientation.PORTRAIT)
+                .addBrowser(1200, 700, CHROME)
+                .addBrowser(1200, 700, FIREFOX)
+                .addBrowser(1200, 700, EDGE_CHROMIUM)
+                .addBrowser(768, 700, CHROME)
+                .addBrowser(768, 700, FIREFOX)
+                .addBrowser(768, 700, EDGE_CHROMIUM)
+                .addDeviceEmulation(iPhone_X, PORTRAIT)
                 .setViewportSize(new RectangleSize(VIEWPORTWIDTH, VIEWPORTHEIGHT))
                 .setApiKey(apiKey)
                 .setServerUrl(applitoolsEyesServer)
@@ -57,17 +56,16 @@ public class BaseTest {
 
     @BeforeMethod
     public void launchBrowser() {
+        WebDriverManager.chromedriver().setup();
         eyes = new Eyes(runner);
         eyes.setConfiguration(suiteConfig);
-        WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @AfterMethod
-    public void quitDriver(ITestResult result) {
-        boolean testFailed = result.getStatus() == ITestResult.FAILURE;
-        if (!testFailed) {
+    public void tearDown(ITestResult result) {
+        if (result.getStatus() != ITestResult.FAILURE) {
             eyes.closeAsync();
         } else {
             eyes.abortAsync();
@@ -78,12 +76,13 @@ public class BaseTest {
     @AfterSuite
     public void results(ITestContext testContext) {
         TestResultsSummary allTestResults = runner.getAllTestResults(false);
-        for (TestResultContainer result : allTestResults) {
-            handleTestResults(result);
-        }
+        allTestResults.forEach(result -> handleTestResults(result));
+//        for (TestResultContainer result : allTestResults) {
+//            handleTestResults(result);
+//        }
     }
 
-    public void handleTestResults(TestResultContainer summary) {
+    private void handleTestResults(TestResultContainer summary) {
         Throwable ex = summary.getException();
         if (ex != null) {
             System.out.printf("System error occurred while checking target.\n");
@@ -106,19 +105,5 @@ public class BaseTest {
                     result.getMissing(),
                     (result.isAborted() ? "aborted" : "no"));
         }
-    }
-
-    public void isCheckboxElementDisplayed() {
-        WebElement blackColorCheckBox = driver.findElement(By.cssSelector("#LABEL__containerc__104 span"));
-        if (!blackColorCheckBox.isDisplayed()) {
-            driver.findElement(By.id("ti-filter")).click();
-        } else {
-            System.out.println("checkbox element is displayed");
-        }
-    }
-
-    public void waitForElementToBeDisplayed(WebElement element) {
-        WebDriverWait wait = new WebDriverWait(driver, 30);
-        wait.until(ExpectedConditions.visibilityOf(element)).isDisplayed();
     }
 }
