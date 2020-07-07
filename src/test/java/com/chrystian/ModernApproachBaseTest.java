@@ -30,7 +30,7 @@ public class ModernApproachBaseTest {
     protected static final int VIEWPORTHEIGHT = 600;
     protected final String applitoolsEyesServer = "https://eyes.applitools.com/";
     protected final String batchName = "ApplitoolsCrossBrowserTestingHackathon";
-    protected final String apiKey = "TJrJCKwtNAeeb0009etxQ0uxfTZrUPk98Z41neaqGoRs110";//System.getenv("APPLITOOLS_API_KEY");
+    protected final String apiKey = System.getenv("APPLITOOLS_API_KEY");
     protected String appName = "AppliFashion";
     protected EyesRunner runner;
 
