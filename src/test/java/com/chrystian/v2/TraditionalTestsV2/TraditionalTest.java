@@ -19,7 +19,6 @@ public class TraditionalTest extends TraditionalApproachBaseTest {
     public void testHomePageElementsVisibility() {
         String searchField = "DIV__customsear__41";
         String searchIcon = "BUTTONsubmit____43";
-        String topBanner = "DIV__topbanner__187";
         String mainMenu = "DIV__mainmenu__15";
         String wishListIcon = "A__wishlist__52";
         String gridIcon = "I__tiviewgrid__202";
@@ -31,9 +30,6 @@ public class TraditionalTest extends TraditionalApproachBaseTest {
 
         softAssertions.assertTrue(hackathonReporter(VERSION, 1, "Search icon is displayed", searchIcon,
                 homePage.getSearchIcon().isDisplayed()));
-
-        softAssertions.assertTrue(hackathonReporter(VERSION, 1, "Top banner is displayed", topBanner,
-                homePage.getTopBanner().isDisplayed()));
 
         softAssertions.assertTrue(hackathonReporter(VERSION, 1, "Main menu is displayed", mainMenu,
                 homePage.getMainMenuButton().isDisplayed()));

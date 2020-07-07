@@ -8,8 +8,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Parameters;
 import org.testng.asserts.SoftAssert;
 
@@ -30,15 +30,15 @@ public class TraditionalApproachBaseTest {
     private String device;
     private Dimension dimension;
 
-    @Parameters("browser")
-    @BeforeTest
+    @Parameters({"browser"})
+    @BeforeClass
     public void setUp(String browser) {
         driver = setUpBrowserDriver(browser);
         softAssertions = new SoftAssert();
         homePage = new HomePage(driver);
     }
 
-    @AfterMethod(alwaysRun = true)
+    @AfterClass(alwaysRun = true)
     public void tearDown() {
         driver.quit();
     }
@@ -103,7 +103,7 @@ public class TraditionalApproachBaseTest {
             setBrowserViewportMobileSize();
             browserName = "chrome";
         }
-
+        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
         return driver;
     }

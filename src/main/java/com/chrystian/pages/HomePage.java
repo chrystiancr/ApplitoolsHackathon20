@@ -9,9 +9,6 @@ import java.util.List;
 
 public class HomePage extends PageObjectBase {
 
-    @FindBy(id = "DIV__topbanner__187")
-    private WebElement topBanner;
-
     @FindBy(id = "DIV__customsear__41")
     private WebElement searchField;
 
@@ -24,14 +21,8 @@ public class HomePage extends PageObjectBase {
     @FindBy(id = "I__tiviewgrid__202")
     private WebElement gridIcon;
 
-    @FindBy(id = "I__tiviewgrid__203")
-    private WebElement gridIcon2;
-
     @FindBy(id = "I__tiviewlist__204")
     private WebElement viewListIcon;
-
-    @FindBy(id = "I__tiviewlist__205")
-    private WebElement viewListIcon2;
 
     @FindBy(id = "filter_col")
     private WebElement filterColumn;
@@ -55,10 +46,6 @@ public class HomePage extends PageObjectBase {
         super(driver);
     }
 
-    public WebElement getTopBanner() {
-        return waiter.until(ExpectedConditions.visibilityOf(topBanner));
-    }
-
     public WebElement getSearchField() {
         return waiter.until(ExpectedConditions.visibilityOf(searchField));
     }
@@ -72,15 +59,15 @@ public class HomePage extends PageObjectBase {
     }
 
     public WebElement getGridIcon() {
-        return waiter.until(ExpectedConditions.visibilityOf(gridIcon));
+        return gridIcon;
     }
 
     public WebElement getViewListIcon() {
-        return waiter.until(ExpectedConditions.visibilityOf(viewListIcon));
+        return viewListIcon;
     }
 
     public WebElement getFilterColumn() {
-        return waiter.until(ExpectedConditions.visibilityOf(filterColumn));
+        return filterColumn;
     }
 
     public WebElement getMainMenuButton() {
