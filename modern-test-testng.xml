@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Applitools Modern Regression Suite" parallel="classes">
+    <test name="VisualTest">
+        <classes>
+            <class name="com.chrystian.v1.ModernTestsV1.ModernTest"/>
+            <class name="com.chrystian.v2.ModernTestsV2.ModernTest"/>
+        </classes>
+    </test>
+</suite>

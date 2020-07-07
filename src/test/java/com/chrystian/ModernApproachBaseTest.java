@@ -10,31 +10,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.ITestContext;
 import org.testng.ITestResult;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
-
-import java.util.concurrent.TimeUnit;
 
 import static com.applitools.eyes.selenium.BrowserType.*;
 import static com.applitools.eyes.visualgrid.model.DeviceName.iPhone_X;
 import static com.applitools.eyes.visualgrid.model.ScreenOrientation.PORTRAIT;
 
 public class ModernApproachBaseTest {
-    private static final int VIEWPORTWIDTH = 800;
-    private static final int VIEWPORTHEIGHT = 600;
-    private final String applitoolsEyesServer = "https://eyes.applitools.com/";
-    private String appName = "AppliFashion";
-    public String appURLV1 = "https://demo.applitools.com/gridHackathonV1.html";
-    public String appURLV2 = "https://demo.applitools.com/gridHackathonV2.html";
-    private final String batchName = "ApplitoolsCrossBrowserTestingHackathon";
-    private final String apiKey = System.getenv("APPLITOOLS_API_KEY");
-    private EyesRunner runner;
-    private Configuration suiteConfig;
+    protected String appURLV1 = "https://demo.applitools.com/gridHackathonV1.html";
+    protected String appURLV2 = "https://demo.applitools.com/gridHackathonV2.html";
     protected Eyes eyes;
     protected WebDriver driver;
     protected HomePage homePage;
+    protected Configuration suiteConfig;
+    protected static final int VIEWPORTWIDTH = 800;
+    protected static final int VIEWPORTHEIGHT = 600;
+    protected final String applitoolsEyesServer = "https://eyes.applitools.com/";
+    protected final String batchName = "ApplitoolsCrossBrowserTestingHackathon";
+    protected final String apiKey = "TJrJCKwtNAeeb0009etxQ0uxfTZrUPk98Z41neaqGoRs110";//System.getenv("APPLITOOLS_API_KEY");
+    protected String appName = "AppliFashion";
+    protected EyesRunner runner;
 
     @BeforeClass
     public void setUp() {
@@ -60,7 +58,6 @@ public class ModernApproachBaseTest {
         eyes = new Eyes(runner);
         eyes.setConfiguration(suiteConfig);
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     @AfterMethod
@@ -73,13 +70,10 @@ public class ModernApproachBaseTest {
         driver.quit();
     }
 
-    @AfterSuite
-    public void results(ITestContext testContext) {
+    @AfterClass
+    public void setResults(ITestContext testContext) {
         TestResultsSummary allTestResults = runner.getAllTestResults(false);
         allTestResults.forEach(result -> handleTestResults(result));
-//        for (TestResultContainer result : allTestResults) {
-//            handleTestResults(result);
-//        }
     }
 
     private void handleTestResults(TestResultContainer summary) {

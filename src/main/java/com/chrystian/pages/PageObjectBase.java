@@ -6,12 +6,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-public class PageObject {
+public class PageObjectBase {
 
     protected WebDriver driver;
     protected WebDriverWait waiter;
 
-    public PageObject(WebDriver pageDriver) {
+    public PageObjectBase(WebDriver pageDriver) {
         driver = pageDriver;
         waiter = new WebDriverWait(driver, 15);
         waiter.withTimeout(Duration.ofSeconds(15)).pollingEvery(Duration.ofSeconds(1));

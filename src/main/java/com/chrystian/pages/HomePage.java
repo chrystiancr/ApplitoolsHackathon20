@@ -5,12 +5,17 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
-public class HomePage extends PageObject {
+import java.util.List;
+
+public class HomePage extends PageObjectBase {
+
+    @FindBy(id = "DIV__topbanner__187")
+    private WebElement topBanner;
 
     @FindBy(id = "DIV__customsear__41")
     private WebElement searchField;
 
-    @FindBy(id = "A__btnsearchm__59")
+    @FindBy(id = "BUTTONsubmit____43")
     private WebElement searchIcon;
 
     @FindBy(id = "A__wishlist__52")
@@ -34,20 +39,24 @@ public class HomePage extends PageObject {
     @FindBy(id = "DIV__mainmenu__15")
     private WebElement mainMenuButton;
 
-    @FindBy(css = "#LABEL__containerc__104 span")
+    @FindBy(id = "LABEL__containerc__104")
     private WebElement blackColorOption;
 
     @FindBy(id = "filterBtn")
     private WebElement filterButton;
 
     @FindBy(css = "#product_grid .grid_item")
-    private WebElement productGrid;
+    private List<WebElement> productGrid;
 
-    @FindBy(id = "IMG__imgfluid__215")
+    @FindBy(id = "product_1")
     private WebElement firstBlackShoesItem;
 
     public HomePage(WebDriver driver) {
         super(driver);
+    }
+
+    public WebElement getTopBanner() {
+        return waiter.until(ExpectedConditions.visibilityOf(topBanner));
     }
 
     public WebElement getSearchField() {
@@ -86,16 +95,18 @@ public class HomePage extends PageObject {
         return waiter.until(ExpectedConditions.elementToBeClickable(filterButton));
     }
 
-    public WebElement getProductGrid() {
-        return waiter.until(ExpectedConditions.visibilityOf(productGrid));
+    public List<WebElement> getProductGrid() {
+        return waiter.until(ExpectedConditions.visibilityOfAllElements(productGrid));
     }
 
     public WebElement getFirstBlackShoesItem() {
         return waiter.until(ExpectedConditions.elementToBeClickable(firstBlackShoesItem));
     }
 
-    public boolean checkElementsVisibility() {
-
-        return false;
+    public DetailsPage getShoesDetail() {
+        getFirstBlackShoesItem().click();
+        return new DetailsPage(driver);
     }
+
 }
+

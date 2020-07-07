@@ -22,7 +22,8 @@
                     <artifactId>maven-surefire-plugin</artifactId>
                     <version>3.0.0-M3</version>
                     <configuration>
-                        <suiteXmlFiles>testng.xml</suiteXmlFiles>
+                        <suiteXmlFiles>traditional-test-testng.xml</suiteXmlFiles>
+                        <suiteXmlFiles>modern-test-testng.xml</suiteXmlFiles>
                     </configuration>
                 </plugin>
             </plugins>

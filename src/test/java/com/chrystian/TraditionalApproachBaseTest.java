@@ -1,4 +1,4 @@
-package TraditionalTestsV1;
+package com.chrystian;
 
 import com.chrystian.pages.HomePage;
 import io.github.bonigarcia.wdm.WebDriverManager;
@@ -9,8 +9,9 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
+import org.testng.asserts.SoftAssert;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -18,21 +19,50 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-public class BaseTest {
-
-    public String browserName;
-    public String viewport;
-    public String device;
+public class TraditionalApproachBaseTest {
     protected String appURLV1 = "https://demo.applitools.com/gridHackathonV1.html";
     protected String appURLV2 = "https://demo.applitools.com/gridHackathonV2.html";
-
     protected WebDriver driver;
     protected HomePage homePage;
+    protected SoftAssert softAssertions;
+    private String browserName;
+    private String viewport;
+    private String device;
     private Dimension dimension;
 
     @Parameters("browser")
-    @BeforeMethod
-    public void launchBrowser(String browser) {
+    @BeforeTest
+    public void setUp(String browser) {
+        driver = setUpBrowserDriver(browser);
+        softAssertions = new SoftAssert();
+        homePage = new HomePage(driver);
+    }
+
+    @AfterMethod(alwaysRun = true)
+    public void tearDown() {
+        driver.quit();
+    }
+
+    protected void setBrowserViewportLaptopSize() {
+        dimension = new Dimension(1200, 700);
+        driver.manage().window().setSize(dimension);
+        viewport = "1200 x 700";
+        device = "Laptop";
+    }
+
+    protected void setBrowserViewportTabletSize() {
+        dimension = new Dimension(768, 700);
+        driver.manage().window().setSize(dimension);
+        viewport = "768 x 700";
+        device = "Tablet";
+    }
+
+    protected void setBrowserViewportMobileSize() {
+        viewport = "500 x 700";
+        device = "Mobile";
+    }
+
+    protected WebDriver setUpBrowserDriver(String browser) {
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             driver = new ChromeDriver();
@@ -43,8 +73,8 @@ public class BaseTest {
             driver = new FirefoxDriver();
             setBrowserViewportLaptopSize();
             browserName = "firefox";
-        } else if (browser.equalsIgnoreCase("edgechromium")) {
-            System.setProperty("webdriver.edge.driver", "src\\main\\resources\\msedgedriver.exe");
+        } else if (browser.equalsIgnoreCase("edge")) {
+            WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
             setBrowserViewportLaptopSize();
             browserName = "edge";
@@ -59,7 +89,7 @@ public class BaseTest {
             setBrowserViewportTabletSize();
             browserName = "firefox";
         } else if (browser.equalsIgnoreCase("edgechromium-tablet")) {
-            System.setProperty("webdriver.edge.driver", "src\\main\\resources\\msedgedriver.exe");
+            WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();
             setBrowserViewportTabletSize();
             browserName = "edge";
@@ -73,66 +103,21 @@ public class BaseTest {
             setBrowserViewportMobileSize();
             browserName = "chrome";
         }
+
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        homePage = new HomePage(driver);
+        return driver;
     }
 
-    @AfterMethod(alwaysRun = true)
-    public void quitDriver() {
-        driver.quit();
-    }
-
-    public void setBrowserViewportLaptopSize() {
-        dimension = new Dimension(1200, 700);
-        driver.manage().window().setSize(dimension);
-        viewport = "1200 x 700";
-        device = "Laptop";
-    }
-
-    public void setBrowserViewportTabletSize() {
-        dimension = new Dimension(768, 700);
-        driver.manage().window().setSize(dimension);
-        viewport = "768 x 700";
-        device = "Tablet";
-    }
-
-    public void setBrowserViewportMobileSize() {
-        viewport = "500 x 700";
-        device = "Mobile";
-    }
-
-    /**
-     * @param task
-     * @param testName
-     * @param domId
-     * @param Result
-     */
-    protected void hackathonReporterV1(int task, String testName, String domId, String Result) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Traditional-V1-TestResults.txt", true))) {
+    public boolean hackathonReporter(String version, int task, String testName, String domId, boolean comparisonResult) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Traditional-" + version + "-TestResults.txt", true))) {
             writer.write("Task: " + task + ", Test Name: " + testName + ", DOM Id: " + domId + ", Browser: " + browserName
-                    + ", Viewport: " + viewport + ", Device: " + device + ", Status: "
-                    + Result);
+                    + ", Viewport: " + viewport + ", Device: " + device + ", Status: " + (comparisonResult ? "Pass" : "Fail"));
             writer.newLine();
         } catch (Exception e) {
-            System.out.println("Error writing report to the file");
+            System.out.println("Error writing to report file");
+            e.printStackTrace();
         }
+        return comparisonResult;
     }
 
-    /**
-     * @param task
-     * @param testName
-     * @param domId
-     * @param Result
-     */
-    protected String hackathonReporterV2(int task, String testName, String domId, String Result) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("Traditional-V2-TestResults.txt", true))) {
-            writer.write("Task: " + task + ", Test Name: " + testName + ", DOM Id: " + domId + ", Browser: " + browserName
-                    + ", Viewport: " + viewport + ", Device: " + device + ", Status: "
-                    + Result);
-            writer.newLine();
-        } catch (Exception e) {
-            System.out.println("Error writing report to the file");
-        }
-        return Result;
-    }
 }

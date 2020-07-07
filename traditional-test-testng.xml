@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Applitools Traditional Regression Suite" parallel="tests">
+    <test name="ChromeTest">
+        <parameter name="browser" value="chrome"/>
+        <classes>
+            <class name="com.chrystian.v1.TraditionalTestsV1.TraditionalTest"/>
+            <class name="com.chrystian.v2.TraditionalTestsV2.TraditionalTest"/>
+        </classes>
+    </test>
+
+    <test name="FirefoxTest">
+        <parameter name="browser" value="firefox"/>
+        <classes>
+            <class name="com.chrystian.v1.TraditionalTestsV1.TraditionalTest"/>
+            <class name="com.chrystian.v2.TraditionalTestsV2.TraditionalTest"/>
+        </classes>
+    </test>
+
+    <test name="EdgeTest">
+        <parameter name="browser" value="edge"/>
+        <classes>
+            <class name="com.chrystian.v1.TraditionalTestsV1.TraditionalTest"/>
+            <class name="com.chrystian.v2.TraditionalTestsV2.TraditionalTest"/>
+        </classes>
+    </test>
+
+    <test name="ChromeTabletTest">
+        <parameter name="browser" value="chrome-tablet"/>
+        <classes>
+            <class name="com.chrystian.v1.TraditionalTestsV1.TraditionalTest"/>
+            <class name="com.chrystian.v2.TraditionalTestsV2.TraditionalTest"/>
+        </classes>
+    </test>
+
+    <test name="FirefoxTabletTest">
+        <parameter name="browser" value="firefox-tablet"/>
+        <classes>
+            <class name="com.chrystian.v1.TraditionalTestsV1.TraditionalTest"/>
+            <class name="com.chrystian.v2.TraditionalTestsV2.TraditionalTest"/>
+        </classes>
+    </test>
+
+    <test name="EdgeTabletTest">
+        <parameter name="browser" value="edgechromium-tablet"/>
+        <classes>
+            <class name="com.chrystian.v1.TraditionalTestsV1.TraditionalTest"/>
+            <class name="com.chrystian.v2.TraditionalTestsV2.TraditionalTest"/>
+        </classes>
+    </test>
+
+    <test name="ChromeiPhonexTest">
+        <parameter name="browser" value="chrome-iphonex"/>
+        <classes>
+            <class name="com.chrystian.v1.TraditionalTestsV1.TraditionalTest"/>
+            <class name="com.chrystian.v2.TraditionalTestsV2.TraditionalTest"/>
+        </classes>
+    </test>
+</suite>
